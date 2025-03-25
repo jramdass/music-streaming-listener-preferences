@@ -1,0 +1,8 @@
+<h1>Listener Preferences</h1>
+<div id="listener_preference">
+  <% @listener_preferences.each do |listener_preference| %>
+    <a href="/listener_preference/<%= listener_preference.user_id %>">
+        <%= listener_preference.user_id %>
+    </a>
+  <% end %>
+</div>

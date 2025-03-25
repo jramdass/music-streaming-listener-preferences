@@ -11,4 +11,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  get "/listener_preferences", to: "listener_preference#index"
+  get "/listener_preference/:user_id", to: "listener_preference#show"
 end

@@ -1,0 +1,2 @@
+class ListenerPreference < ApplicationRecord
+end
