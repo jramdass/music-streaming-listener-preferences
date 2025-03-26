@@ -1,8 +1,15 @@
-<h1>Listener Preferences</h1>
+<h1>Music Streaming Listener Preferences</h1>
+<h2>User List</h2>
 <div id="listener_preference">
-  <% @listener_preferences.each do |listener_preference| %>
-    <a href="/listener_preference/<%= listener_preference.user_id %>">
-        <%= listener_preference.user_id %>
-    </a>
-  <% end %>
+    <table>
+      <% @listener_preferences.each do |listener_preference| %>
+        <tr>
+          <td rowspan="20">
+            <a href="/listener_preference/<%= listener_preference.user_id %>">
+              <%= listener_preference.user_id %>
+            </a>
+          </td>
+        </tr>
+      <% end %>
+  </table>
 </div>

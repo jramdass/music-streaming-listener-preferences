@@ -1,6 +1,35 @@
-<h1><%= @listener_preference.user_id %></h1>
+<%= stylesheet_link_tag "table" %>
+<h2>Music Streaming Listener Preferences</h2>
+<h2>User: <%= @listener_preference.user_id %></h2>
 <div> 
-    <%= @listener_preference.inspect %>
+    <table>
+        <tr>
+            <th>Age</th>
+            <th>Country</th>
+            <th>Streaming Platform</th>
+            <th>Top Genre</th>
+            <th>Minutes Streamed Per Day</th>
+            <th>Number of Songs Liked</th>
+            <th>Most Played Artist</th>
+            <th>Subscription Type</th>
+            <th>Listening Time</th>
+            <th>Discover Weekly Engagement</th>
+            <th>Repeat Song Rate</th>
+        </tr>
+        <tr>
+            <td><%= @listener_preference.age %></td>
+            <td><%= @listener_preference.country %></td>
+            <td><%= @listener_preference.streaming_platform %></td>
+            <td><%= @listener_preference.top_genre %></td>
+            <td><%= @listener_preference.minutes_streamed_per_day %></td>
+            <td><%= @listener_preference.number_of_songs_liked %></td>
+            <td><%= @listener_preference.most_played_artist %></td>
+            <td><%= @listener_preference.subscription_type %></td>
+            <td><%= @listener_preference.listening_time %></td>
+            <td><%= @listener_preference.discover_weekly_engagement %></td>
+            <td><%= @listener_preference.repeat_song_rate %></td>
+        </tr>
+    </table>
 </div>
 <br>
 <%= link_to "Back", listener_preferences_path %>
