@@ -6,4 +6,8 @@ class ListenerPreferenceController < ApplicationController
   def show
     @listener_preference = ListenerPreference.find(params[:user_id])
   end
+
+  def top_genres
+    @top_genres = ListenerPreference.group("top_genre").order("COUNT(top_genre) DESC").count
+  end
 end

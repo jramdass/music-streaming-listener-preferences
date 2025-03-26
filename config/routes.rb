@@ -14,4 +14,5 @@ Rails.application.routes.draw do
 
   get "/listener_preferences", to: "listener_preference#index"
   get "/listener_preference/:user_id", to: "listener_preference#show"
+  get "/listener_preference_by_genre", to: "listener_preference#top_genres"
 end
