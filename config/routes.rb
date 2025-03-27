@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   get "/listener_preferences", to: "listener_preference#index"
-  get "/listener_preference/:user_id", to: "listener_preference#show"
-  get "/listener_preference_by_genre", to: "listener_preference#top_genres"
+  get "/listener_preference/:user_id", to: "listener_preference#user"
+  get "/listener_preference_top_lists", to: "listener_preference#top_lists"
 end

@@ -1,0 +1,24 @@
+<h2>Top Lists</h2>
+<div class="grid-container">
+    <h3>Top Genres</h3>
+    <h3>Most Played Artists</h3>
+    <%= pie_chart(@top_genres) %>
+    <%= pie_chart(@top_artists) %>
+</div>
+<br>
+<div class="grid-container">
+    <h3>Most Played Artists</h3>
+    <h3>Countries</h3>
+    <%= pie_chart(@top_artists) %>
+    <%= pie_chart(@top_countries) %>
+</div>
+<br>
+<div class="grid-container">
+    <h3>Listening Time</h3>
+    <h3>Streaming Platform</h3>
+    <div><%= pie_chart(@listening_time) %> </div>
+    <div><%= pie_chart(@streaming_platform) %> </div>
+</div>
+<br>
+<%= link_to "Back", listener_preferences_path %>
+<%= render "footer" %>

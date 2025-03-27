@@ -1,0 +1,36 @@
+<%= stylesheet_link_tag "table" %>
+<h2>Music Streaming Listener Preferences</h2>
+<h2>User: <%= @user.user_id %></h2>
+<div> 
+    <table>
+        <tr>
+            <th>Age</th>
+            <th>Country</th>
+            <th>Streaming Platform</th>
+            <th>Top Genre</th>
+            <th>Minutes Streamed Per Day</th>
+            <th>Number of Songs Liked</th>
+            <th>Most Played Artist</th>
+            <th>Subscription Type</th>
+            <th>Listening Time</th>
+            <th>Discover Weekly Engagement</th>
+            <th>Repeat Song Rate</th>
+        </tr>
+        <tr>
+            <td><%= @user.age %></td>
+            <td><%= @user.country %></td>
+            <td><%= @user.streaming_platform %></td>
+            <td><%= @user.top_genre %></td>
+            <td><%= @user.minutes_streamed_per_day %></td>
+            <td><%= @user.number_of_songs_liked %></td>
+            <td><%= @user.most_played_artist %></td>
+            <td><%= @user.subscription_type %></td>
+            <td><%= @user.listening_time %></td>
+            <td><%= @user.discover_weekly_engagement %></td>
+            <td><%= @user.repeat_song_rate %></td>
+        </tr>
+    </table>
+</div>
+<br>
+<%= link_to "Back", listener_preferences_path %>
+<%= render "footer" %>
