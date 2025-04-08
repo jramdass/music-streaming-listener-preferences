@@ -1,6 +1,13 @@
 class ListenerPreferenceController < ApplicationController
   def index
     @listener_preferences = ListenerPreference.all
+    if params[:genre].blank?
+      @listener_preferences = ListenerPreference.all
+    elsif params[:genre]
+      @listener_preferences = ListenerPreference.filter_genre(params[:genre])
+    end
+
+    @genre_list = ListenerPreference.distinct.pluck(:top_genre)
   end
 
   def user

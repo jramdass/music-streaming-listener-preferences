@@ -6,6 +6,15 @@
 </div>
 <br>
 <div id="listener_preference">
+    <br>
+
+    <%= form_tag(listener_preferences_path, :method => "get", id: "filter-form") do %>
+      <%= select_tag :genre, options_for_select(@genre_list), include_blank: true %>
+      <%= submit_tag "Filter" %>
+    <% end %>
+
+    <h3> Users filtered by genre: <%= params[:genre] %></h3>
+
     <table>
       <% @listener_preferences.each do |listener_preference| %>
         <tr>
