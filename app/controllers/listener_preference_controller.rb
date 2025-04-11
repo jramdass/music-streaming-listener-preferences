@@ -21,4 +21,32 @@ class ListenerPreferenceController < ApplicationController
     @listening_time = ListenerPreference.group("listening_time").order("COUNT(listening_time) DESC").count
     @streaming_platform = ListenerPreference.group("streaming_platform").order("COUNT(streaming_platform) DESC").count
   end
+
+  def create_user
+    @listener_preference = ListenerPreference.new
+  end
+
+  def create
+    @listener_preference = ListenerPreference.new(listener_preference_params)
+    @listener_preference.user_id = generate_user_id()
+    if @listener_preference.save
+      redirect_to @listener_preference
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  private
+    def listener_preference_params
+      params.expect(listener_preference: [ :age, :country, :streaming_platform, :top_genre, :minutes_streamed_per_day,
+      :number_of_songs_liked, :most_played_artist, :subscription_type, :listening_time, :discover_weekly_engagement,
+      :repeat_song_rate ])
+    end
+
+  private
+    def generate_user_id
+      new_user_id = ListenerPreference.maximum(:user_id).sub(/[U]/, "")
+      new_user_id = Integer(new_user_id) + 1
+      new_user_id = "U" + String(new_user_id)
+    end
 end
