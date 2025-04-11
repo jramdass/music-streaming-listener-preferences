@@ -15,4 +15,7 @@ Rails.application.routes.draw do
   get "/listener_preferences", to: "listener_preference#index"
   get "/listener_preference/:user_id", to: "listener_preference#user"
   get "/listener_preference_top_lists", to: "listener_preference#top_lists"
+
+  get "/listener_preference_create_user", to: "listener_preference#create_user"
+  post "/listener_preference", to: "listener_preference#create"
 end
