@@ -2,8 +2,8 @@
 <h2>User List</h2>
 
 <div id="extra_data">
-  <h3><a href="/listener_preference_top_lists">See top lists here</a></h3>
-  <h3><a href="/listener_preference_create_user">Create user</a></h3>
+  <h3><a href="/listener_preferences/top_lists">See top lists here</a></h3>
+  <h3><a href="/listener_preferences/create_user">Create user</a></h3>
 </div>
 <br>
 <div id="listener_preference">
@@ -20,9 +20,7 @@
       <% @listener_preferences.each do |listener_preference| %>
         <tr>
           <td rowspan="20">
-            <a href="/listener_preference/<%= listener_preference.user_id %>">
-              <%= listener_preference.user_id %>
-            </a>
+            <%= link_to listener_preference.user_id, listener_preference %>
           </td>
         </tr>
       <% end %>

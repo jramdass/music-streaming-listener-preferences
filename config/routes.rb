@@ -12,10 +12,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  get "/listener_preferences", to: "listener_preference#index"
-  get "/listener_preference/:user_id", to: "listener_preference#user"
-  get "/listener_preference_top_lists", to: "listener_preference#top_lists"
+  get "/listener_preferences", to: "listener_preferences#index"
+  post "/listener_preferences", to: "listener_preferences#create"
+  get "/listener_preferences/top_lists", to: "listener_preferences#top_lists"
+  get "/listener_preferences/create_user", to: "listener_preferences#create_user"
 
-  get "/listener_preference_create_user", to: "listener_preference#create_user"
-  post "/listener_preference", to: "listener_preference#create"
+  get "/listener_preferences/:user_id", to: "listener_preferences#show", as: "listener_preference"
 end
