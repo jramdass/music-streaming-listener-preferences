@@ -32,5 +32,7 @@
     </table>
 </div>
 <br>
+<%= button_to "Delete", @user, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+<br>
 <%= link_to "Back", listener_preferences_path %>
 <%= render "footer" %>
