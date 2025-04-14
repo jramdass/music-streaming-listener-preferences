@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   get "/listener_preferences/create_user", to: "listener_preferences#create_user"
 
   get "/listener_preferences/:user_id", to: "listener_preferences#show", as: "listener_preference"
+  delete "/listener_preferences/:user_id", to: "listener_preferences#destroy"
 end
