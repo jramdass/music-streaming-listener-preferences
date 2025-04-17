@@ -1,43 +1,7 @@
-
-
 <h1>Create User</h1>
 
-<%= form_with url:listener_preferences_path, model: @listener_preference do |form| %>
-    Age
-    <%= form.text_field :age, size: 3 %>
-    <br>
-    Country
-    <%= form.text_field :country %>
-    <br>
-    Streaming Platform
-    <%= form.text_field :streaming_platform %>
-    <br>
-    Top Genre
-    <%= form.text_field :top_genre %>
-    <br>
-    Minutes Streamed Per Day
-    <%= form.text_field :minutes_streamed_per_day, size: 10 %>
-    <br>
-    Number of Songs Liked
-    <%= form.text_field :number_of_songs_liked, size: 10 %>
-    <br>
-    Most Played Artist
-    <%= form.text_field :most_played_artist %>
-    <br>
-    Subscription Type
-    <%= form.text_field :subscription_type %>
-    <br>
-    Listening Time
-    <%= form.text_field :listening_time %>
-    <br>
-    Discover Weekly Engagement
-    <%= form.text_field :discover_weekly_engagement, size: 10 %>
-    <br>
-    Repeat Song Rate
-    <%= form.text_field :repeat_song_rate, size: 10 %>
-    <br>
-    <br>
-    <%= form.submit %>
+<%= form_with(model: @listener_preference, url: listener_preferences_path, local: true) do |form| %>
+  <%= render partial: 'form', listener_preference: @listener_preference, locals: { form: form } %>
 <% end %>
 
 <br>
