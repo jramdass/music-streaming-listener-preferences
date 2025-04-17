@@ -1,5 +1,5 @@
 class ListenerPreferencesController < ApplicationController
-  before_action :set_user, only: %i[ show destroy ]
+  before_action :set_user, only: %i[ show edit update destroy ]
 
   def index
     @listener_preferences = ListenerPreferences.all
@@ -37,8 +37,19 @@ class ListenerPreferencesController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @listener_preference.update(listener_preference_params)
+      redirect_to @listener_preference
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def destroy
-    @user.destroy
+    @listener_preference.destroy
     redirect_to listener_preferences_path
   end
 
@@ -56,6 +67,6 @@ class ListenerPreferencesController < ApplicationController
     end
 
     def set_user
-      @user = ListenerPreferences.find(params[:user_id])
+      @listener_preference = ListenerPreferences.find(params[:user_id])
     end
 end

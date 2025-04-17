@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag "table" %>
 <h2>Music Streaming Listener Preferences</h2>
-<h2>User: <%= @user.user_id %></h2>
+<h2>User: <%= @listener_preference.user_id %></h2>
 <div> 
     <table>
         <tr>
@@ -17,22 +17,29 @@
             <th>Repeat Song Rate</th>
         </tr>
         <tr>
-            <td><%= @user.age %></td>
-            <td><%= @user.country %></td>
-            <td><%= @user.streaming_platform %></td>
-            <td><%= @user.top_genre %></td>
-            <td><%= @user.minutes_streamed_per_day %></td>
-            <td><%= @user.number_of_songs_liked %></td>
-            <td><%= @user.most_played_artist %></td>
-            <td><%= @user.subscription_type %></td>
-            <td><%= @user.listening_time %></td>
-            <td><%= @user.discover_weekly_engagement %></td>
-            <td><%= @user.repeat_song_rate %></td>
+            <td><%= @listener_preference.age %></td>
+            <td><%= @listener_preference.country %></td>
+            <td><%= @listener_preference.streaming_platform %></td>
+            <td><%= @listener_preference.top_genre %></td>
+            <td><%= @listener_preference.minutes_streamed_per_day %></td>
+            <td><%= @listener_preference.number_of_songs_liked %></td>
+            <td><%= @listener_preference.most_played_artist %></td>
+            <td><%= @listener_preference.subscription_type %></td>
+            <td><%= @listener_preference.listening_time %></td>
+            <td><%= @listener_preference.discover_weekly_engagement %></td>
+            <td><%= @listener_preference.repeat_song_rate %></td>
         </tr>
     </table>
 </div>
 <br>
-<%= button_to "Delete", @user, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+
+<div id="editForm">
+    <%= form_with(model: @listener_preference, url: listener_preference_path, local: true) do |form| %>
+        <%= render partial: 'form', listener_preference: @listener_preference, locals: { form: form } %>
+    <% end %>
+</div>
+<br>
+<%= button_to "Delete", @listener_preference, method: :delete, data: { turbo_confirm: "Are you sure?" } %>
 <br>
 <%= link_to "Back", listener_preferences_path %>
 <%= render "footer" %>
