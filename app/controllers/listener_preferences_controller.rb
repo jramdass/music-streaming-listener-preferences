@@ -9,6 +9,10 @@ class ListenerPreferencesController < ApplicationController
       @listener_preferences = ListenerPreferences.filter_genre(params[:genre])
     end
 
+    if params[:user_id]
+      @listener_preferences = ListenerPreferences.search(params[:user_id])
+    end
+
     @genre_list = ListenerPreferences.distinct.pluck(:top_genre)
   end
 
