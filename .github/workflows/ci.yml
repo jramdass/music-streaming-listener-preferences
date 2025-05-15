@@ -81,6 +81,14 @@ jobs:
           # REDIS_URL: redis://localhost:6379/0
         run: bin/rails db:test:prepare test test:system
 
+      - name: Run E2E tests
+        uses: cypress-io/github-action@v6
+        env:
+          RAILS_ENV: test
+          # REDIS_URL: redis://localhost:6379/0
+        run: bin/rails server &
+             npx cypress run
+
       - name: Keep screenshots from failed system tests
         uses: actions/upload-artifact@v4
         if: failure()
