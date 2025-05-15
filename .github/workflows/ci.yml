@@ -85,17 +85,13 @@ jobs:
           echo "PATH: $PATH"
           echo "SHELL: $SHELL"
         shell: bash
-      
-      - name: Run rails server
-        env:
-          RAILS_ENV: test
-        run: bin/rails server &
 
       - name: Run E2E tests
         env:
           RAILS_ENV: test
         uses: cypress-io/github-action@v6
         with:
+          start: /opt/hostedtoolcache/Ruby/3.4.2/x64/bin/rails server &
           wait-on: http://0.0.0.0:3000
       
       - name: Keep screenshots from failed system tests
