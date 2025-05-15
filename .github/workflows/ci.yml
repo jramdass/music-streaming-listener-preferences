@@ -79,13 +79,17 @@ jobs:
         env:
           RAILS_ENV: test
         run: bin/rails db:test:prepare test test:system
+      
+      - name: Run rails server
+        env:
+          RAILS_ENV: test
+        run: bin/rails server &
 
       - name: Run E2E tests
         env:
           RAILS_ENV: test
         uses: cypress-io/github-action@v6
         with:
-          start: rails server &
           wait-on: http://0.0.0.0:3000
       
 
