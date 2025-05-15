@@ -85,7 +85,7 @@ jobs:
           RAILS_ENV: test
         uses: cypress-io/github-action@v6
         with:
-          start: bin/rails server
+          start: rails server &
           wait-on: http://0.0.0.0:3000
       
 
