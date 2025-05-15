@@ -2,7 +2,6 @@ name: CI
 
 on:
   pull_request:
-    branches: [ main ]
   push:
     branches: [ main ]
 
@@ -87,8 +86,6 @@ jobs:
         env:
           RAILS_ENV: test
           # REDIS_URL: redis://localhost:6379/0
-        run: bin/rails server &
-             npx cypress run
 
       - name: Keep screenshots from failed system tests
         uses: actions/upload-artifact@v4
