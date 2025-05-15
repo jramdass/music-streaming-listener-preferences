@@ -84,7 +84,7 @@ jobs:
       - name: Run rails server
         env: 
           RAILS_ENV: test
-        run: bin/rails server
+        run: bin/rails server &
 
       - name: Run E2E tests
         uses: cypress-io/github-action@v6
