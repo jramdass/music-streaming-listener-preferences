@@ -79,6 +79,12 @@ jobs:
         env:
           RAILS_ENV: test
         run: bin/rails db:test:prepare test test:system
+
+      - name: Debug Environment
+        run: |
+          echo "PATH: $PATH"
+          echo "SHELL: $SHELL"
+        shell: bash
       
       - name: Run rails server
         env:
@@ -92,7 +98,6 @@ jobs:
         with:
           wait-on: http://0.0.0.0:3000
       
-
       - name: Keep screenshots from failed system tests
         uses: actions/upload-artifact@v4
         if: failure()
